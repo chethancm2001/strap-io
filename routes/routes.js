@@ -1,16 +1,19 @@
 const router = require('express').Router()
-const createuser = require('../controllers/createuser')
-const createchannel = require('../controllers/createchannel')
-const createfield = require('../controllers/createfield')
-const updatefield = require('../controllers/updatefield')
+const createuser = require('../controllers/postcontrollers/createuser')
+const createchannel = require('../controllers/postcontrollers/createchannel')
+const createfield = require('../controllers/postcontrollers/createfield')
+const updatefield = require('../controllers/postcontrollers/updatefield')
 const getchannels = require('../controllers/getcontrollers/getchannels')
 const getfields = require('../controllers/getcontrollers/getfields')
+const login = require('../controllers/auth/login')
+const userauth = require('../middleware/userauth')
+const checkchannel = require('../middleware/checkchannel')
 //routes for post
 router.post('/api/createuser',createuser)
 
-router.post('/api/createchannel',createchannel)
+router.post('/api/createchannel',userauth,createchannel)
 
-router.post('/api/createfield',createfield)
+router.post('/api/createfield/:channel',userauth,checkchannel,createfield)
 
 router.post('/api/update',updatefield)
 
@@ -19,19 +22,20 @@ router.post('/api/post',(req,res)=>{
     res.send(data)
 })
 
+router.post('/api/login',login)
 
 //routes for get
 
 //for me
 
 //routes for all the channels
-router.get('/api/channels',getchannels)
+router.get('/api/channels',userauth,getchannels)
 //routes for all the fields
-router.get('/api/fields',getfields)
 
-router.get('/',(req,res)=>{
-    res.send("hello from routes")
-})
+//it uses query
+router.get('/api/fields',userauth,getfields)
+
+
 
 module.exports = router
 

@@ -1,4 +1,4 @@
-const fieldModel = require('../models/fieldModel')
+const fieldModel = require('../../models/fieldModel')
 async function updatefield(req,res){
 let id = "6322a1a6d7a8fc309c2b0418"
 try{

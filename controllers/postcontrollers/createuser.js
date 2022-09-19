@@ -1,11 +1,8 @@
-const userModel = require('../models/userModel')
+const userModel = require('../../models/userModel')
 
 async function createuser(req,res){
-let user = new userModel({
-    name:"chethan",
-    email:"chethancm2001kadur@gmail.com",
-    password:"chethan"
-})
+    let {name, email,password} = req.body
+let user = new userModel({name,email,password})
 try{
     let result = await user.save()
     res.send(result)
