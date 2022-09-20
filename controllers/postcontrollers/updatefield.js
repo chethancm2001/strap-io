@@ -1,21 +1,35 @@
 const fieldModel = require('../../models/fieldModel')
 async function updatefield(req,res){
-let id = "6322a1a6d7a8fc309c2b0418"
+
+let channel = req.params.channel
+let fieldId = req.query.field
+let data = Number((req.body.data))
+console.log(data)
+
+let fieldvalue = {value:data}
+
 try{
-let result = fieldModel.findByIdAndUpdate({_id:id},{
+let result = fieldModel.findByIdAndUpdate({_id:fieldId},{
     $push:{
-        "data":['30']
+       data:{value:data,time:Date.now()}
     }
 },(err,result)=>{
-    res.send({err,result})
+  if(result != null){
+   return  res.send({err,result})
+
+}
+if(err){
+    return res.status(400).json({"message":"error in data"})
+}
 })
 
 }
 catch(err){
     console.log(err)
-    res.send(err)
+   return res.send(err)
 }
 }
 
 module.exports = updatefield
+
 

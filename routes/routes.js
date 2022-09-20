@@ -37,6 +37,8 @@ router.get('/api/fields',userauth,getfields)
 
 
 
+//post route for hardware
+router.post('/api/post/:channel',updatefield)
 module.exports = router
 
 //user id = 6321f0f7263bbef543f9e69d
