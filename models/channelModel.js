@@ -7,7 +7,6 @@ let channelSchema = mongoose.Schema({
   },
   description:{
    type:String,
-   
   },
   createdby:{
     type:mongoose.Types.ObjectId,
