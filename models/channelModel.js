@@ -5,6 +5,10 @@ let channelSchema = mongoose.Schema({
     type:String,
     required:true
   },
+  description:{
+   type:String,
+   
+  },
   createdby:{
     type:mongoose.Types.ObjectId,
     ref:'User',

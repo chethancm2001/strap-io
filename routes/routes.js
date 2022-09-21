@@ -17,11 +17,6 @@ router.post('/api/createfield/:channel',userauth,checkchannel,createfield)
 
 router.post('/api/update',updatefield)
 
-router.post('/api/post',(req,res)=>{
-    let data = req.query
-    res.send(data)
-})
-
 router.post('/api/login',login)
 
 //routes for get
