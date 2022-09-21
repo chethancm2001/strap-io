@@ -18,6 +18,11 @@ let userSchema = mongoose.Schema({
     type:Date,
     default:Date.now
   },
+  isverified:{
+  type:Boolean,
+  default:false,
+  required:true,
+  },
   channels:{
     type:[mongoose.Types.ObjectId],
     ref:'Channel'

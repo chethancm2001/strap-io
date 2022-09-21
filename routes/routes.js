@@ -8,6 +8,7 @@ const getfields = require('../controllers/getcontrollers/getfields')
 const login = require('../controllers/auth/login')
 const userauth = require('../middleware/userauth')
 const checkchannel = require('../middleware/checkchannel')
+const verifyemail = require('../controllers/auth/verifyemail')
 //routes for post
 router.post('/api/createuser',createuser)
 
@@ -34,6 +35,10 @@ router.get('/api/fields',userauth,getfields)
 
 //post route for hardware
 router.post('/api/post/:channel',updatefield)
+
+//for verifly the email
+router.get('/api/verifly-email/:userid',verifyemail)
+
 module.exports = router
 
 //user id = 6321f0f7263bbef543f9e69d
