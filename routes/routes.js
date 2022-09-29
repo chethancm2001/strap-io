@@ -21,7 +21,9 @@ router.post('/api/update',updatefield)
 router.post('/api/login',login)
 
 //routes for get
-
+router.get('/api',(req,res)=>{
+    res.send("working fine")
+})
 //for me
 
 //routes for all the channels
