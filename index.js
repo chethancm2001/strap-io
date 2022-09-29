@@ -11,6 +11,6 @@ app.use(router)
 
 const port = process.env.PORT || 3000
 config()
-app.listen(4000,()=>{
+app.listen(port,()=>{
     console.log("server is runing")
 })
