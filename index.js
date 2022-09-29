@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(router)
 
 
-
+const port = process.env.PORT || 3000
 config()
 app.listen(4000,()=>{
     console.log("server is runing")
